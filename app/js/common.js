@@ -72,6 +72,7 @@ $(function() {
 	var windowTop = $(window).scrollTop();
 
 	function activeMenu() {
+		1
 		$("nav li a.active").removeClass("active");
 		if (windowTop > $("#links").offset().top - 200) {$("nav li a[href='#links']").addClass("active");}
 		else if (windowTop > $("#gists").offset().top - 200) {$("nav li a[href='#gists']").addClass("active");}
