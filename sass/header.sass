@@ -1,0 +1,69 @@
+@import "bourbon"
+@import "vars.sass"
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.6
+	background-color: #000
+	color: #fff
+	font-family: $font_b
+	overflow-x: hidden
+
+section
+	min-height: 500px
+h2.title
+	text-align: center
+	text-transform: uppercase
+#front
+	nav
+		position: fixed
+		top: 50%
+		margin-top: -122.5px
+		right: 0
+		ul
+			padding: 0
+			margin: 0
+			list-style: none
+			li
+				display: table
+				margin-bottom: 1px
+				position: relative
+				a
+					background-color: #FFF
+					color: #000
+					width: 40px
+					height: 40px
+					right: 0
+					display: table-cell
+					vertical-align: middle
+					text-align: center
+					cursor: pointer
+					transition: right 0.3s
+					position: relative
+					&:hover
+						right: 15px
+					&:before
+						content: ""
+						position: absolute
+						width: 20px
+						height: 1px
+						top: 18px
+						background-color: #fff
+						right: -20px
+						display: inline-block
+				&:before
+					content: ""
+					position: absolute
+					width: 100%
+					height: 1px
+					bottom: -1px
+					background-color: #000
+				&:last-child
+					a:after
+						height: 0
+.active
+	right: 15px !important
+.hidden
+	display: none
