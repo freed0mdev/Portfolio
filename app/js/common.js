@@ -81,6 +81,7 @@ $(function() {
 		else if (windowTop > $("#front").offset().top - 200) {$("nav li a[href='#front']").addClass("active");}
 		else {$("nav li a[href='#front']").addClass("active");};
 	}; activeMenu();
-
+	//modal
+	$('#works').dialog();
 });
 

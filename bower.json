@@ -1,0 +1,23 @@
+{
+  "name": "Portfolio",
+  "description": "First Gulp Project",
+  "main": "",
+  "authors": [
+    "Dmytriy Ivashchenko <yokodima@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/yokodima/Portfolio",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "^1.11.4"
+  }
+}

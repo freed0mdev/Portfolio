@@ -28,12 +28,38 @@ body textarea:required:valid
 	color: #666
 
 //Custom Styles Here
+img
+	max-width: 100%
+	height: auto
 #works
-	.item
-		min-height: 200px
-		border: 1px solid #fff
-	.item.pull-right
-	margin-bottom: 20px
+	a
+		.item
+			width: 210px
+			overflow: hidden
+			text-align: center
+			display: inline-block
+			margin-right: 30px
+			margin-bottom: 30px
+			position: relative
+			.title
+				position: absolute
+				top: 50px
+				width: 100%
+				font-weight: bold
+				color: #fff
+				text-shadow: 1px 1px 1px #000
+				z-index: 1
+				background: #000
+			.img-wrap
+				width: 210px
+				height: 310px
+				border-radius: 10px
+				overflow: hidden
+				img
+					filter: blur(1px)
+		&:nth-child(5n) .item
+			margin-right: 0
+
 
 
 //ALWAYS END
