@@ -63,20 +63,34 @@ $(function() {
 	//waypointsActiveMenu
 	var i = 0;
 
+	var linkItemRemoveActive = function(i){
+		return $("#front a[href='#" + docSections[i - 1].id + "']").removeClass("active");
+	};
+	var linkItemAddActive = function(i){
+		return $("#front a[href='#" + docSections[i - 1].id + "']").addClass("active");
+	};
+
 	docSections.waypoint(function(direction) {
-		$("nav li a.active").removeClass("active");
 		if (direction == 'down') {
+			if (i != 0 ) {
+				linkItemRemoveActive(i);
+			}
 			i++;
-		}
-		if (direction == 'up') {
+		} else {
+			if (i != 0 ) {
+				linkItemRemoveActive(i);
+			}
 			i--;
 		}
 		if (i != 0) {
-			$("nav li a[href='#" + docSections[i - 1].id + "']").addClass("active");
+			linkItemAddActive(i);
 		}
 	}, {
 		offset: 1
 	});
+
+	//modal
+	$('#works').dialog();
 
 });
 
