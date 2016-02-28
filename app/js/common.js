@@ -37,25 +37,21 @@ $(function() {
 
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
-	var windowTop = $(window).scrollTop();
-
 	$(window).on("resize", function() {
-		windowTop = $(window).scrollTop();
 		windowHeight = $(window).height();
 		wayPointMinHeight(windowHeight);
 		
 	});
 
 	$(window).on("scroll", function() {
-		windowTop = $(window).scrollTop();
 	});
 
 	//sectionHeight
 	var windowHeight = $(window).height();
-	var waypoint_arr = $('section');
+	var docSections = $('section');
 
 	function wayPointMinHeight(height) {
-		$(waypoint_arr).css('min-height', height);
+		$(docSections).css('min-height', height);
 	}; wayPointMinHeight(windowHeight);
 
 	//scrollToAnchor
@@ -65,11 +61,9 @@ $(function() {
 	});
 
 	//waypointsActiveMenu
-	var sectionsMenu = $('section');
-	var lengthMenu = sectionsMenu.length;
 	var i = 0;
 
-	$('section').waypoint(function(direction) {
+	docSections.waypoint(function(direction) {
 		$("nav li a.active").removeClass("active");
 		if (direction == 'down') {
 			i++;
@@ -78,7 +72,7 @@ $(function() {
 			i--;
 		}
 		if (i != 0) {
-			$("nav li a[href='#" + sectionsMenu[i - 1].id + "']").addClass("active");
+			$("nav li a[href='#" + docSections[i - 1].id + "']").addClass("active");
 		}
 	}, {
 		offset: 1
