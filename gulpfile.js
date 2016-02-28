@@ -43,9 +43,10 @@ gulp.task('scripts', function() {
 		'./app/libs/waypoints/waypoints.min.js',
 		'./app/libs/animate/animate-css.js',
 		'./app/libs/plugins-scroll/plugins-scroll.js',
+		'./bower_components/jquery-ui/jquery-ui.min.js',
 		])
 		.pipe(concat('libs.js'))
-		.pipe(uglify())
+		// .pipe(uglify())
 		.pipe(gulp.dest('./app/js/'));
 });
 

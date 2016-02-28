@@ -37,27 +37,22 @@ $(function() {
 
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
-	//waypoints
-
-	// $('elements').waypoint(function(direction) {
-	// 	//codehere
-	// });
+	var windowTop = $(window).scrollTop();
 
 	$(window).on("resize", function() {
 		windowTop = $(window).scrollTop();
 		windowHeight = $(window).height();
 		wayPointMinHeight(windowHeight);
-		activeMenu();
+		
 	});
 
 	$(window).on("scroll", function() {
 		windowTop = $(window).scrollTop();
-		activeMenu();
 	});
 
 	//sectionHeight
 	var windowHeight = $(window).height();
-	var waypoint_arr = $('.waypoint');
+	var waypoint_arr = $('section');
 
 	function wayPointMinHeight(height) {
 		$(waypoint_arr).css('min-height', height);
@@ -68,20 +63,26 @@ $(function() {
 		$("html,body").animate({scrollTop: $($(this).attr("href")).offset().top}, 500);
 		return false;
 	});
-	//activemenu
-	var windowTop = $(window).scrollTop();
 
-	function activeMenu() {
+	//waypointsActiveMenu
+	var sectionsMenu = $('section');
+	var lengthMenu = sectionsMenu.length;
+	var i = 0;
+
+	$('section').waypoint(function(direction) {
 		$("nav li a.active").removeClass("active");
-		if (windowTop > $("#links").offset().top - 200) {$("nav li a[href='#links']").addClass("active");}
-		else if (windowTop > $("#gists").offset().top - 200) {$("nav li a[href='#gists']").addClass("active");}
-		else if (windowTop > $("#desktop").offset().top - 200) {$("nav li a[href='#desktop']").addClass("active");}
-		else if (windowTop > $("#works").offset().top - 200) {$("nav li a[href='#works']").addClass("active");}
-		else if (windowTop > $("#about").offset().top - 200) {$("nav li a[href='#about']").addClass("active");}
-		else if (windowTop > $("#front").offset().top - 200) {$("nav li a[href='#front']").addClass("active");}
-		else {$("nav li a[href='#front']").addClass("active");};
-	}; activeMenu();
-	//modal
-	$('#works').dialog();
+		if (direction == 'down') {
+			i++;
+		}
+		if (direction == 'up') {
+			i--;
+		}
+		if (i != 0) {
+			$("nav li a[href='#" + sectionsMenu[i - 1].id + "']").addClass("active");
+		}
+	}, {
+		offset: 1
+	});
+
 });
 
